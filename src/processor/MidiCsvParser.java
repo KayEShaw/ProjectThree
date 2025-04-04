@@ -19,8 +19,8 @@ public class MidiCsvParser {
 	 * 3. make a new MidiEventData object and assign it the variables value
 	 * 4. store/add each object to a MidiEventData List
 	 * 5. return this list
-	 * @param file
-	 * @return
+	 * @param File
+	 * @return List<MidiEventData>
 	 */
 	public static List<MidiEventData> CsvProcess(File file) {
 		List<MidiEventData> DataList = new ArrayList<>();

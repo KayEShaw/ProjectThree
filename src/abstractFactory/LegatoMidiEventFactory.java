@@ -5,6 +5,7 @@ import javax.sound.midi.MidiEvent;
 import javax.sound.midi.ShortMessage;
 
 public class LegatoMidiEventFactory implements MidiEventFactory{
+
 	public MidiEvent CreateNoteOn(int t, int n, int v, int c) {
 		MidiEvent midi = null;
 		try {
