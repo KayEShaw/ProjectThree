@@ -4,6 +4,10 @@ import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.ShortMessage;
 
+/**
+ * Factory that implements the functions CreateNoteOn and Off 
+ * creates the notes on and off in the specified format
+ */
 public class StaccatoMidiEventFactory implements MidiEventFactory{
 	public MidiEvent CreateNoteOn(int t, int n, int v, int c) {
 		MidiEvent midi = null;

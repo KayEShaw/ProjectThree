@@ -34,8 +34,8 @@ public class Main {
 	public static void main(String[] args) {
 	try {
 		System.out.println("running main");
-		//get sequencer
-		Sequencer sequencer = MidiSystem.getSequencer();
+		//get sequencer : software component that plays back midi data
+		Sequencer sequencer = MidiSystem.getSequencer(true);
 		sequencer.open();
 		//get sequence
 		Sequence sequence = new Sequence(Sequence.PPQ, 384);
@@ -47,6 +47,7 @@ public class Main {
 		List<MidiEventData> events = MidiCsvParser.CsvProcess(myFile);
 		
 		//get factory
+		System.out.println("made it to the factory");
 		MidiEventFactoryAbstract factoryAbstract = null;
 		factoryAbstract = new StandardMidiEventFactoryAbstract();
 		MidiEventFactory factory = factoryAbstract.createFactory();
@@ -63,23 +64,25 @@ public class Main {
 		//add the notes
 		for(MidiEventData event : events) {
 			int noteChanges = pitch.modifyPitch(event.getNote());
-			noteChanges = pitch.modifyPitch(noteChanges);
+			//noteChanges = pitch.modifyPitch(noteChanges);
 			
-			if(event.getNoteOnOff() == ShortMessage.NOTE_ON) {
+			if(event.getNoteOnOff() == 1) {
 				track.add(factory.CreateNoteOn(event.getStartEndTick(), noteChanges, event.getVelocity(), event.getChannel()));
+				System.out.println("added the note on");
 			}
 			else {
 				track.add(factory.CreateNoteOff(event.getStartEndTick(), noteChanges, event.getChannel()));
+				System.out.println("added " + event.getNoteOnOff());
 			}
 		}
 		
 		//playing the sequence
 		sequencer.setSequence(sequence);
 		sequencer.start();
-		while ( sequencer . isRunning () | sequencer . isOpen ()) { Thread . sleep (100);
+		while ( sequencer.isRunning () | sequencer.isOpen ()) { Thread.sleep (100);
 		}
-		Thread . sleep (500);
-		sequencer . close ();
+		Thread.sleep (500);
+		sequencer.close ();
 	} catch(Exception e){
 		e.printStackTrace();
 	}

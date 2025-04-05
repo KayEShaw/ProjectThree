@@ -6,11 +6,20 @@ import java.util.*;
 
 
 public class MidiCsvParser {
+	/**
+	 * makes sure there are enough variables in the row
+	 * @param length
+	 */
 	static void checkLine(int length) {
 		if (length != 6) {
 			throw new ArithmeticException("Invalid line there aren't 6 variables");
 		}
 	}
+	/**
+	 * returns a binary int to represent on or off
+	 * @param s
+	 * @return
+	 */
 	static int getNumber(String s) {
 		if(s.equalsIgnoreCase("Note_On_c")) {
 			System.out.println("it is a match");
@@ -53,11 +62,11 @@ public class MidiCsvParser {
 				
 				//make MidiEventData object and assign values
 				MidiEventData object = new MidiEventData(Tick, Velocity, Note, Channel, Instrument, OnOff);
-				object.toString();
+				System.out.println(object.toString());
 				
 				//add the object to the list
 				DataList.add(object);
-				System.out.println("end of row");
+				System.out.println("end of row\n");
 			}
 
 		}

@@ -5,6 +5,10 @@ import javax.sound.midi.MidiEvent;
 import javax.sound.midi.ShortMessage;
 
 public class StandardMidiEventFactory implements MidiEventFactory{
+	/**
+	 * Factory that implements the functions CreateNoteOn and Off 
+	 * creates the notes on and off in the specified format
+	 */
 	@Override
 	public MidiEvent CreateNoteOn(int t, int n, int v, int c) {
 		MidiEvent midi = null;

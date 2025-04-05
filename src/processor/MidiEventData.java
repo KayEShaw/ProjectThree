@@ -14,7 +14,7 @@ public class MidiEventData {
 	 * @param noteOnOff
 	 */
 	public MidiEventData(int startEndTick, int velocity, int note, int channel, int instrument, int noteOnOff) {
-		System.out.println("New object created\n");
+		System.out.println("New object created");
 		this.startEndTick = startEndTick;
 		this.velocity = velocity;
 		this.note = note;
@@ -110,7 +110,7 @@ public class MidiEventData {
 	@Override
 	public String toString() {
 		return "MidiEventData [startEndTick=" + startEndTick + ", noteOnOff=" + noteOnOff + ", channel=" + channel + ", note=" + note+ ", velocity=" + velocity 
-				+ ", instrument=" + instrument + "]\n";
+				+ ", instrument=" + instrument + "]";
 	}
 	
 }
