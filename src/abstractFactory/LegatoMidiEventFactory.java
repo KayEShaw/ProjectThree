@@ -18,7 +18,7 @@ public class LegatoMidiEventFactory implements MidiEventFactory{
 		}
 		return midi;
 	}
-	public MidiEvent CreateNoteOff(int t, int n, int v, int c) {
+	public MidiEvent CreateNoteOff(int t, int n, int c) {
 		MidiEvent midi = null;
 		try {
 		ShortMessage off = new ShortMessage();

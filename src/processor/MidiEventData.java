@@ -110,7 +110,7 @@ public class MidiEventData {
 	@Override
 	public String toString() {
 		return "MidiEventData [startEndTick=" + startEndTick + ", noteOnOff=" + noteOnOff + ", channel=" + channel + ", note=" + note+ ", velocity=" + velocity 
-				+ ", instrument=" + instrument + "]";
+				+ ", instrument=" + instrument + "]\n";
 	}
 	
 }

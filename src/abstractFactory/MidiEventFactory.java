@@ -23,5 +23,5 @@ MidiEvent CreateNoteOn(int tick, int note, int velocity, int channel) throws Inv
 	 * @return
 	 * @throws InvalidMidiDataException
 	 */
-MidiEvent CreateNoteOff(int tick, int note, int velocity, int channel) throws InvalidMidiDataException;
+MidiEvent CreateNoteOff(int tick, int note, int channel) throws InvalidMidiDataException;
 }

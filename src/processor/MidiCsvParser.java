@@ -11,6 +11,14 @@ public class MidiCsvParser {
 			throw new ArithmeticException("Invalid line there aren't 6 variables");
 		}
 	}
+	static int getNumber(String s) {
+		if(s.equalsIgnoreCase("Note_On_c")) {
+			System.out.println("it is a match");
+			return 1;
+		}
+		System.out.println("it is not a match");
+		return 0;
+	}
 	/**
 	 * the function CsvProcess takes in a file parameter
 	 * this function will 
@@ -31,11 +39,13 @@ public class MidiCsvParser {
 				String line;
 				line = scanner.nextLine();
 				String[] StringValues;
-				StringValues = line.split(","); //separate the list
-				
+				StringValues = line.split(",");//separate the list
+
 				checkLine(StringValues.length);//throw an exception if there aren't enough variables
 				int Tick = Integer.parseInt(StringValues[0].trim());
-				int OnOff = Integer.parseInt(StringValues[1].trim());
+
+				int OnOff = getNumber(StringValues[1].trim());
+				System.out.println("the OnOff Value: " + OnOff);
 				int Channel = Integer.parseInt(StringValues[2].trim());
 				int Note = Integer.parseInt(StringValues[3].trim()); 
 				int Velocity = Integer.parseInt(StringValues[4].trim());
@@ -47,6 +57,7 @@ public class MidiCsvParser {
 				
 				//add the object to the list
 				DataList.add(object);
+				System.out.println("end of row");
 			}
 
 		}
